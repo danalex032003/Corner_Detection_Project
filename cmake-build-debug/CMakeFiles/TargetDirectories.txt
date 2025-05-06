@@ -1,0 +1,3 @@
+D:/UTCN/An3/Sem2/PI/Corner_Detection_Project/cmake-build-debug/CMakeFiles/Corner_Detection_Project.dir
+D:/UTCN/An3/Sem2/PI/Corner_Detection_Project/cmake-build-debug/CMakeFiles/edit_cache.dir
+D:/UTCN/An3/Sem2/PI/Corner_Detection_Project/cmake-build-debug/CMakeFiles/rebuild_cache.dir

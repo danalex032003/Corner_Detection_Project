@@ -1,0 +1,14 @@
+{
+    "version": 1,
+    "revision": 0,
+    "rules": [
+        {
+            "primary-output": "CMakeFiles\\Corner_Detection_Project.dir\\src\\image_manipulation.cpp.obj",
+            "outputs": [
+                "D:\\UTCN\\An3\\Sem2\\PI\\Corner_Detection_Project\\cmake-build-debug\\vc140.pdb",
+                "CMakeFiles\\Corner_Detection_Project.dir\\src\\image_manipulation.cpp.obj.ddi"
+            ],
+            "requires": []
+        }
+    ]
+}

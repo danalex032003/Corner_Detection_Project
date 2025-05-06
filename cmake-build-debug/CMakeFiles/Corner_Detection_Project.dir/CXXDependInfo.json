@@ -1,0 +1,21 @@
+{
+	"bmi-installation" : null,
+	"compiler-frontend-variant" : "MSVC",
+	"compiler-id" : "MSVC",
+	"compiler-simulate-id" : "",
+	"config" : "Debug",
+	"cxx-modules" : {},
+	"dir-cur-bld" : "D:/UTCN/An3/Sem2/PI/Corner_Detection_Project/cmake-build-debug",
+	"dir-cur-src" : "D:/UTCN/An3/Sem2/PI/Corner_Detection_Project",
+	"dir-top-bld" : "D:/UTCN/An3/Sem2/PI/Corner_Detection_Project/cmake-build-debug",
+	"dir-top-src" : "D:/UTCN/An3/Sem2/PI/Corner_Detection_Project",
+	"exports" : [],
+	"forward-modules-from-target-dirs" : [],
+	"include-dirs" : 
+	[
+		"D:\\opencv\\build\\include"
+	],
+	"language" : "CXX",
+	"linked-target-dirs" : [],
+	"module-dir" : "D:/UTCN/An3/Sem2/PI/Corner_Detection_Project/cmake-build-debug/CMakeFiles/Corner_Detection_Project.dir"
+}

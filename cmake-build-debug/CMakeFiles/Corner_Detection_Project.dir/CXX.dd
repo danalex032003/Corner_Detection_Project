@@ -1,0 +1,7 @@
+ninja_dyndep_version = 1.0
+build CMakeFiles\Corner_Detection_Project.dir\main.cpp.obj: dyndep
+
+build CMakeFiles\Corner_Detection_Project.dir\src\image_manipulation.cpp.obj: dyndep
+
+build CMakeFiles\Corner_Detection_Project.dir\src\ShiTomasi.cpp.obj: dyndep
+
