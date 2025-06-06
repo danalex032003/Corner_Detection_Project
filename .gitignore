@@ -1,0 +1,34 @@
+# CLion-specific
+.idea/
+*.iml
+
+# Build directories
+cmake-build-*/
+build/
+CMakeFiles/
+cmake-build-debug/
+cmake-build-release/
+CMakeCache.txt
+Makefile
+compile_commands.json
+CTestTestfile.cmake
+cmake_install.cmake
+
+# Executables and object files
+*.exe
+*.out
+*.app
+*.o
+*.obj
+*.so
+*.a
+*.dll
+*.lib
+*.dylib
+
+# OS-specific
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log

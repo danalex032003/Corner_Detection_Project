@@ -1,26 +1,49 @@
 #include <opencv2/opencv.hpp>
 #include "src/image_manipulation.h"
 #include "src/ShiTomasi.h"
+#include "src/Susan.h"
+#include "src/testing.h"
 
 using namespace std;
 using namespace cv;
 
-int main() {
+vector<Point2f> run_shi_tomasi_built_in(string filepath) {
+    Mat image = imread(filepath, IMREAD_COLOR);
+    image = BGR2Gray(image);
 
-    //Mat image = imread(R"(D:\UTCN\An3\Sem2\PI\Corner_Detection_Project\images\cubes_colored.jpg)", IMREAD_COLOR_BGR);
-    //Mat image = imread(R"(D:\UTCN\An3\Sem2\PI\Corner_Detection_Project\images\flat,750x,075,f-pad,750x1000,f8f8f8.jpg)", IMREAD_COLOR_BGR);
-    //Mat image = imread(R"(D:\UTCN\An3\Sem2\PI\Corner_Detection_Project\images\yellow-black-square-checkered-check-flag-pattern-grid-texture-checkerboard-vector.jpg)", IMREAD_COLOR_BGR);
-    //Mat gray_image = BGR2Gray(image);
-    //Mat gray_image = imread(R"(D:\UTCN\An3\Sem2\PI\Corner_Detection_Project\images\Corner.png)", IMREAD_GRAYSCALE);
-    //Mat gray_image = imread(R"(D:\UTCN\An3\Sem2\PI\Corner_Detection_Project\images\star.bmp)", IMREAD_GRAYSCALE);
-    //Mat gray_image = imread(R"(D:\UTCN\An3\Sem2\PI\Corner_Detection_Project\images\Checkerboard_pattern.png)", IMREAD_GRAYSCALE);
-    //Mat gray_image = imread(R"(D:\UTCN\An3\Sem2\PI\Corner_Detection_Project\images\grayscale-photo-of-building.jpg)", IMREAD_GRAYSCALE);
-    Mat gray_image = imread(R"(D:\UTCN\An3\Sem2\PI\Corner_Detection_Project\images\grayscale-photo-of-high-rise-buildings.jpg)", IMREAD_GRAYSCALE);
-    //Mat gray_image = imread(R"(D:\UTCN\An3\Sem2\PI\Corner_Detection_Project\images\checkers.png)", IMREAD_GRAYSCALE);
-    gradient_mat gradient = compute_gradient(gray_image);
-    vector<vector<Mat>> auto_correlation_mat = compute_auto_correlation(gradient);
-    Mat corners_image = compute_corner_value(auto_correlation_mat, gray_image, 0.1);
-    imshow("Corners Image", corners_image);
-    imshow("Grayscale image", gray_image);
+    int maxCorners = 100;
+    double qualityLevel = 0.01;
+    double minDistance = 10;
+
+    vector<Point2f> corners;
+    goodFeaturesToTrack(
+            image,
+            corners,
+            maxCorners,
+            qualityLevel,
+            minDistance
+    );
+
+    Mat result;
+    cvtColor(image, result, COLOR_GRAY2BGR);
+    for (const auto& pt : corners) {
+        circle(result, pt, 3, Scalar(0, 0, 255), -1);
+    }
+
+    imshow("Shi-Tomasi Corners built in", result);
+
+    return corners;
+}
+
+int main() {
+    string filepath = "D:\\UTCN\\An3\\Sem2\\PI\\Corner_Detection_Project\\images\\left.jpg";
+
+    vector<Point2f> shi_tomasi_corners = run_shi_tomasi(filepath);
+    vector<Point2f> susan_corners = run_susan(filepath);
+
+    vector<Point2f> opencv_corners = run_shi_tomasi_built_in(filepath);
+    int matches_shi_tomasi = count_matches(shi_tomasi_corners, opencv_corners, 10);
+    int matches_susan = count_matches(susan_corners, opencv_corners, 5);
+    printf("Matches Shi-Tomasi: %d/100, Matches Susan: %d/100", matches_shi_tomasi, matches_susan);
     waitKey();
 }

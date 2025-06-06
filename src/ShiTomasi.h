@@ -2,6 +2,7 @@
 #define CORNER_DETECTION_PROJECT_SHITOMASI_H
 
 #include <opencv2/opencv.hpp>
+#include "testing.h"
 
 using namespace std;
 using namespace cv;
@@ -25,6 +26,8 @@ gradient_mat compute_gradient(Mat source);
 
 vector<vector<Mat>> compute_auto_correlation(gradient_mat);
 
-Mat compute_corner_value(vector<vector<Mat>> auto_correlation_mat_per_pixel, Mat source, float threshold);
+Mat compute_corner_value(vector<vector<Mat>> auto_correlation_mat_per_pixel, Mat source, float threshold, int max_corners, float min_distance);
+
+vector<Point2f> run_shi_tomasi(string filepath);
 
 #endif //CORNER_DETECTION_PROJECT_SHITOMASI_H

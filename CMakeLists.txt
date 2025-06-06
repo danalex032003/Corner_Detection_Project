@@ -11,5 +11,9 @@ add_executable(Corner_Detection_Project main.cpp
     src/image_manipulation.cpp
     src/ShiTomasi.h
     src/ShiTomasi.cpp
+    src/Susan.h
+    src/Susan.cpp
+    src/testing.h
+    src/testing.cpp
 )
 target_link_libraries(Corner_Detection_Project ${OpenCV_LIBS})
